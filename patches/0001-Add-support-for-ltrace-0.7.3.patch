@@ -1,0 +1,41 @@
+From a171d29359ffa91e1f10d28da4441dbb0a3dd4f2 Mon Sep 17 00:00:00 2001
+From: Ulf Samuelsson <ulf@emagii.com>
+Date: Wed, 19 Mar 2014 09:53:00 +0100
+Subject: [PATCH] Add support for ltrace-0.7.3
+
+Signed-off-by: Ulf Samuelsson <ulf@emagii.com>
+---
+ config/debug/ltrace.in |    6 ++++++
+ 1 file changed, 6 insertions(+)
+ create mode 100644 patches/ltrace/0.7.3/.empty
+
+diff --git a/config/debug/ltrace.in b/config/debug/ltrace.in
+index 6b27121..934402f 100644
+--- a/config/debug/ltrace.in
++++ b/config/debug/ltrace.in
+@@ -15,6 +15,11 @@ choice
+ # Don't remove next line
+ # CT_INSERT_VERSION_BELOW
+ 
++config LTRACE_V_0_7_3
++    bool
++    prompt "0.7.3"
++#    select LTRACE_0_5_3_or_later
++
+ config LTRACE_V_0_5_3
+     bool
+     prompt "0.5.3"
+@@ -30,6 +35,7 @@ config LTRACE_VERSION
+     string
+ # Don't remove next line
+ # CT_INSERT_VERSION_STRING_BELOW
++    default "0.7.3"   if LTRACE_V_0_7_3
+     default "0.5.3" if LTRACE_V_0_5_3
+     default "0.5.2" if LTRACE_V_0_5_2
+ 
+diff --git a/patches/ltrace/0.7.3/.empty b/patches/ltrace/0.7.3/.empty
+new file mode 100644
+index 0000000..e69de29
+-- 
+1.7.9.5
+

@@ -1,18 +1,10 @@
-# Object files
-*.o
-*.ko
+*~
+crosstool*
+.build
+old
+toolchain.sh
+*.tar.bz2
+.config
+.source
+.toolchain
 
-# Libraries
-*.lib
-*.a
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
