@@ -84,9 +84,15 @@ $(BUILD)/tools.sh:	$(CT_NG)
 	cp ../uclibc-cortex-a8.config 	./.config ; \
 	cp ../uClibc-0.9.32.config	./uClibc-0.9.33.config)
 	touch	$@
-http://www.mentor.com/embedded-software/multimedia/player/identify-and-solve-qt-ui-performance-problems-331eeb3e-a154-49c3-9089-fb9ec6a1b4ca
+
+prepare:
+	sudo apt-get install autoconf automake libtool libexpat1-dev \
+		libncurses5-dev bison flex patch curl cvs texinfo \
+		build-essential subversion gawk python-dev gperf
+
+
 build:	.toolchain
-	(cd $(BUILD) ; . ./tools.sh ; $(CT_NG) build)
+	(cd $(BUILD) ; . ./tools.sh ; time $(CT_NG) build)
 
 toolchain.sh:
 	echo	"#!/bin/sh"								>	$@
@@ -101,7 +107,6 @@ completion:
 debug:
 	echo	USER=$(USER)
 
-
 clean:
 	rm -fr $(SRC)
 	rm -fr $(DESTDIR)/*
@@ -109,5 +114,3 @@ clean:
 	rm -fr	$(BUILD)
 	rm -fr toolchain.sh
 #	rm -f  $(COMPLETTION)/ct-ng.comp
-
-
