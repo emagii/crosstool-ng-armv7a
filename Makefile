@@ -82,7 +82,7 @@ $(BUILD)/tools.sh:	$(CT_NG)
 .toolchain:	.config
 	(cd $(BUILD) ; $(CT_NG) arm-unknown-linux-gnueabi ; \
 	cp ../uclibc-cortex-a8.config 	./.config ; \
-	cp ../uClibc-0.9.32.config	./uClibc-0.9.33.config)
+	cp ../uClibc-0.9.33.config	./uClibc-0.9.33.config)
 	touch	$@
 
 prepare:
