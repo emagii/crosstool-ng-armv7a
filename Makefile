@@ -96,6 +96,7 @@ build:	.toolchain
 
 toolchain.sh:
 	echo	"#!/bin/sh"								>	$@
+	echo	"export ARCH=arm"							>>	$@
 	echo	"export	GCCROOT=/usr/local/uclibc/arm-unknown-linux-uclibcgnueabihf"	>>	$@
 	echo	"export PATH=\$$GCCROOT/bin:\$$PATH"					>>	$@
 	echo	"export CROSS_COMPILE=arm-linux-"					>>	$@
